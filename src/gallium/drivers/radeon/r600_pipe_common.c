@@ -847,7 +847,7 @@ static int r600_get_compute_param(struct pipe_screen *screen,
 			 * make sure we never report more than
 			 * 4 * MAX_MEM_ALLOC_SIZE.
 			 */
-			*max_global_size = MIN2(4 * max_mem_alloc_size,
+			*max_global_size = MIN2(2 * max_mem_alloc_size,
 				rscreen->info.gart_size +
 				rscreen->info.vram_size);
 		}
@@ -876,7 +876,7 @@ static int r600_get_compute_param(struct pipe_screen *screen,
 			/* XXX: The limit in older kernels is 256 MB.  We
 			 * should add a query here for newer kernels.
 			 */
-			*max_mem_alloc_size = 256 * 1024 * 1024;
+			*max_mem_alloc_size = 2048 * 1024 * 1024;
 		}
 		return sizeof(uint64_t);
 
